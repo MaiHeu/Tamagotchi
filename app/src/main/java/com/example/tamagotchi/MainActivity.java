@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick_buttonPlay(View v)
     {
-        Intent intent = new Intent(MainActivity.this, createActivity.class);
+        Intent intent = new Intent(MainActivity.this, CreateActivity.class);
         startActivity(intent);
     }
 
