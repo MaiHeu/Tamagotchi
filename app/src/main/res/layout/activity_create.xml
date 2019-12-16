@@ -16,18 +16,69 @@
         android:src="@drawable/ic_arrow_back_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/imageButtonRechts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="339dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginBottom="349dp"
+        android:layout_marginTop="341dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="347dp"
         android:src="@drawable/ic_arrow_forward_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCreateHamster"
+        android:layout_width="245dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="83dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="16dp"
+        android:text="@android:string/ok"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="228dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="88dp"
+        android:ems="10"
+        android:hint="Name deines Hamsters"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="224dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="83dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText">
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="W" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="M" />
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
