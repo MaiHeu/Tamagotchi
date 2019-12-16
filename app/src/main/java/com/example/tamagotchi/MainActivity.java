@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         System.out.println("Hallo Hamster");
 
+        // startet den Background Service :3
+        startService(new Intent(getApplicationContext(),BackgroundService.class));
+
         buttonPlay = findViewById(R.id.buttonPlay);
     }
 }

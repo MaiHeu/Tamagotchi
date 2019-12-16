@@ -58,4 +58,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
+    <TextView
+        android:id="@+id/textLove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textLove"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="628dp" />
+
+    <TextView
+        android:id="@+id/textFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textFood"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="660dp" />
+
+    <TextView
+        android:id="@+id/textPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textPlay"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="696dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
