@@ -20,13 +20,42 @@
         android:id="@+id/buttonPlay"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="151dp"
+        android:layout_marginStart="280dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="240dp"
         android:background="@drawable/ic_abc"
         android:onClick="onClick_buttonPlay"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonPat"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="240dp"
+        android:background="@drawable/ic_valentines"
+        android:onClick="onClick_buttonPlay"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonFeed"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="240dp"
+        android:background="@drawable/ic_salad"
+        android:onClick="onClick_buttonPlay"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
