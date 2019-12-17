@@ -22,7 +22,7 @@ class Hamster {
     }
 
     public Geschlecht getGeschlecht() {
-        return geschlecht;
+        return this.getGeschlecht();
     }
 
     public void setGeschlecht(Geschlecht geschlecht) {
