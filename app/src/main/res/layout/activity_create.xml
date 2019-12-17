@@ -80,7 +80,6 @@
             android:id="@+id/radioButtonWeiblich"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scal
             android:button="@drawable/ic_female" />
     </RadioGroup>
 
