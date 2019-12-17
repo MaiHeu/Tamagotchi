@@ -3,6 +3,7 @@ package com.example.tamagotchi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,5 +28,15 @@ public class MainActivity extends AppCompatActivity {
         //startService(new Intent(getApplicationContext(),BackgroundService.class));
 
         buttonPlay = findViewById(R.id.buttonPlay);
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        SharedPreferences prefs = getSharedPreferences("label", 0);
+        SharedPreferences.Editor mEditor = prefs.edit();
+        mEditor.putFloat("love", 15).commit();
+
+        super.onDestroy();
     }
 }
