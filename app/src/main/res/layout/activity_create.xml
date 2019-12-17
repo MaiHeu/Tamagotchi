@@ -74,12 +74,14 @@
             android:id="@+id/radioButtonMännlich"
             android:layout_width="113dp"
             android:layout_height="82dp"
+            android:scaleType="fitCenter"
             android:button="@drawable/ic_male" />
 
         <RadioButton
             android:id="@+id/radioButtonWeiblich"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
             android:button="@drawable/ic_female" />
     </RadioGroup>
 
