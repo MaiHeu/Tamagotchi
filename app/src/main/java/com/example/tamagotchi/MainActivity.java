@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,14 +29,18 @@ public class MainActivity extends AppCompatActivity {
         //startService(new Intent(getApplicationContext(),BackgroundService.class));
 
         buttonPlay = findViewById(R.id.buttonPlay);
+
+        Hamster hamsi = new Hamster("Frank", Geschlecht.MALE);
+
+        //SavestateHandler.saveHamsterData(hamsi, this);
+        SavestateHandler.loadHamsterData(hamsi, this);
+
     }
 
     @Override
     protected void onDestroy() {
 
-        SharedPreferences prefs = getSharedPreferences("label", 0);
-        SharedPreferences.Editor mEditor = prefs.edit();
-        mEditor.putFloat("love", 15).commit();
+
 
         super.onDestroy();
     }

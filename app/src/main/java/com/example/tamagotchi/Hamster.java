@@ -3,10 +3,10 @@ package com.example.tamagotchi;
 class Hamster {
     private String name;
     private Geschlecht geschlecht;
-    private short statLove;
-    private short statPlay;
-    private short statFood;
-    private short alter;
+    private float statLove;
+    private float statPlay;
+    private float statFood;
+    private float alter;
 
     public Hamster(String name, Geschlecht geschlecht) {
         this.name = name;
@@ -29,35 +29,35 @@ class Hamster {
         this.geschlecht = geschlecht;
     }
 
-    public short getStatLove() {
+    public float getStatLove() {
         return statLove;
     }
 
-    public void setStatLove(short statLove) {
+    public void setStatLove(float statLove) {
         this.statLove = statLove;
     }
 
-    public short getStatPlay() {
+    public float getStatPlay() {
         return statPlay;
     }
 
-    public void setStatPlay(short statPlay) {
+    public void setStatPlay(float statPlay) {
         this.statPlay = statPlay;
     }
 
-    public short getStatFood() {
+    public float getStatFood() {
         return statFood;
     }
 
-    public void setStatFood(short statFood) {
+    public void setStatFood(float statFood) {
         this.statFood = statFood;
     }
 
-    public short getAlter() {
+    public float getAlter() {
         return alter;
     }
 
-    public void setAlter(short alter) {
+    public void setAlter(float alter) {
         this.alter = alter;
     }
 }
