@@ -1,7 +1,5 @@
 package com.example.tamagotchi;
 
-import androidx.annotation.NonNull;
-
 public enum Geschlecht {
     MALE, FEMALE;
 
@@ -12,4 +10,5 @@ public enum Geschlecht {
         else
             return "weiblich";
     }
+
 }
