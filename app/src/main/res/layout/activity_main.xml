@@ -62,24 +62,32 @@
         android:id="@+id/textLove"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="336dp"
+        android:layout_marginBottom="71dp"
         android:text="textLove"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="628dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textFood"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFeed" />
 
     <TextView
         android:id="@+id/textFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
         android:text="textFood"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="660dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLove" />
 
     <TextView
         android:id="@+id/textPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
         android:text="textPlay"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="696dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFood" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

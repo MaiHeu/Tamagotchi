@@ -1,5 +1,7 @@
 package com.example.tamagotchi;
 
+import android.graphics.drawable.Drawable;
+
 class Hamster {
     private String name;
     private Geschlecht geschlecht;
@@ -7,10 +9,13 @@ class Hamster {
     private float statPlay;
     private float statFood;
     private float alter;
+    private Drawable image;
+    private MainActivity mainActivity;
 
-    public Hamster(String name, Geschlecht geschlecht) {
+    public Hamster(String name, Geschlecht geschlecht, MainActivity mainActivity) {
         this.name = name;
         this.geschlecht = geschlecht;
+        this.mainActivity = mainActivity;
     }
 
     public String getName() {
@@ -21,7 +26,7 @@ class Hamster {
         this.name = name;
     }
 
-    public String getGeschlecht() {return this.getGeschlecht();}
+    public Geschlecht getGeschlecht() { return this.geschlecht; }
 
     public void setGeschlecht(Geschlecht geschlecht) {
         this.geschlecht = geschlecht;
@@ -33,6 +38,7 @@ class Hamster {
 
     public void setStatLove(float statLove) {
         this.statLove = statLove;
+        mainActivity.getButtonPat().setText( String.valueOf(statLove) );
     }
 
     public float getStatPlay() {
@@ -41,6 +47,7 @@ class Hamster {
 
     public void setStatPlay(float statPlay) {
         this.statPlay = statPlay;
+        mainActivity.getButtonPlay().setText( String.valueOf(statPlay) );
     }
 
     public float getStatFood() {
@@ -49,6 +56,7 @@ class Hamster {
 
     public void setStatFood(float statFood) {
         this.statFood = statFood;
+        mainActivity.getButtonFeed().setText( String.valueOf(statFood) );
     }
 
     public float getAlter() {

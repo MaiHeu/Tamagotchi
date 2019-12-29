@@ -12,8 +12,13 @@ public class SavestateHandler {
 
         //Speichern der eigentlichen Daten
         mEditor.putString("name", hamster.getName()).commit();
- //       String schnuppi = hamster.getGeschlecht().toString();
-//        mEditor.putString("geschlecht", schnuppi);
+
+        String schnuppi = hamster.getGeschlecht().toString();
+        if(hamster.getGeschlecht() == Geschlecht.MALE)
+            mEditor.putString("geschlecht", "MALE");
+        else
+            mEditor.putString("geschlecht", "FEMALE");
+
         mEditor.putFloat("love", hamster.getStatLove()).commit();
         mEditor.putFloat("food", hamster.getStatFood()).commit();
         mEditor.putFloat("play", hamster.getStatPlay()).commit();
@@ -36,9 +41,13 @@ public class SavestateHandler {
         hamster.setStatFood(prefis.getFloat("food", hamster.getStatFood()));
         hamster.setStatPlay(prefis.getFloat("play", hamster.getStatPlay()));
         hamster.setAlter(prefis.getFloat("alter", hamster.getAlter()));
+        if(prefis.getString("geschlecht", "FEMALE") == "MALE")
+            hamster.setGeschlecht(Geschlecht.MALE);
+        else
+            hamster.setGeschlecht(Geschlecht.FEMALE);
 
         Toast toast = Toast.makeText(mainActivity.getApplicationContext(),
-                hamster.getName(),
+                hamster.getName() + " wurde geladen!",
                 Toast.LENGTH_SHORT);
         toast.show();
     }
