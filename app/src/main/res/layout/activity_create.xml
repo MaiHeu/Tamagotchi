@@ -85,4 +85,12 @@
             android:button="@drawable/ic_female" />
     </RadioGroup>
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/basishamsterneu"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="298dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
