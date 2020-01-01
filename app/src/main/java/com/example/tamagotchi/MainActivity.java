@@ -51,8 +51,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick_buttonPat(View v)
     {
-        //just to test :P
-        showSpeechBubble(R.drawable.speechbubble_love);
+        if(hamsi.getStatLove() > 95)
+        {
+            Toast toast = Toast.makeText(this.getApplicationContext(),
+                    hamsi.getName() + " fühlt sich genug geliebt!",
+                    Toast.LENGTH_SHORT);
+            toast.show();
+            showSpeechBubble(R.drawable.speechbubble_nolove, 1000);
+        }
+        else
+        {
+            hamsi.setStatLove( hamsi.getStatLove() + 5 );
+            showSpeechBubble(R.drawable.speechbubble_love, 1000);
+        }
     }
 
     public void onClick_buttonPlay(View v)
@@ -69,14 +80,16 @@ public class MainActivity extends AppCompatActivity {
                     hamsi.getName() + " ist satt!",
                     Toast.LENGTH_SHORT);
             toast.show();
+            showSpeechBubble(R.drawable.speechbubble_nosalad, 1000);
         }
         else
         {
             hamsi.setStatFood( hamsi.getStatFood() + 5 );
+            showSpeechBubble(R.drawable.speechbubble_salad, 1000);
         }
     }
 
-    public void showSpeechBubble( int imageResourceId )
+    public void showSpeechBubble( int imageResourceId, int time )
     {
         if(!isThereASpeechBubble)
         {
@@ -89,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     speechBubble.setVisibility(View.INVISIBLE);
                 }
-            }, 3000);
+            }, time);
             isThereASpeechBubble = false;
         }
     }
