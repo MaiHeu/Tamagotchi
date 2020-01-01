@@ -89,8 +89,10 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/basishamsterneu"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="298dp" />
+        android:layout_marginStart="81dp"
+        android:layout_marginBottom="126dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCreateHamster"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonLinks"
+        app:srcCompat="@drawable/basishamsterneu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
