@@ -3,14 +3,17 @@ package com.example.tamagotchi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.Drawable;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 public class CreateActivity extends AppCompatActivity {
 
     RadioGroup genderSelector;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,26 +24,19 @@ public class CreateActivity extends AppCompatActivity {
             @Override //checkedId is the RadioButtonSelected 0 = m | 1 = w
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 onRadioButtonClick(checkedId);
-            }});
+            }
+        });
     }
 
-    protected void onRadioButtonClick(int checkedId)
-    {
-        System.out.println("test");
-        RadioButton maennlich = findViewById(R.id.radioButtonMännlich);
-        RadioButton weiblich = findViewById(R.id.radioButtonWeiblich);
-                switch (checkedId)
-                {
-                    case 0: //männlich
-                        System.out.println("test männlich");
-                        maennlich.setForeground(null);
-                        weiblich.setForeground(Drawable.createFromPath("drawable/ic_female"));
-
-                        break;
-                    case 1:
-                        weiblich.setForeground(null);
-                        maennlich.setForeground(Drawable.createFromPath("drawable/ic_male"));
-                        break;
-                }
-            }
+    protected void onRadioButtonClick(int checkedId) {
+        RadioButton male = findViewById(R.id.radioButtonMännlich);
+        RadioButton female = findViewById(R.id.radioButtonWeiblich);
+        if(male.isChecked()) {
+            male.setForeground(null);
+            female.setForeground(getResources().getDrawable(R.drawable.ic_female, getTheme()));
+        }else{
+            female.setForeground(null);
+            male.setForeground(getResources().getDrawable(R.drawable.ic_male, getTheme()));
         }
+    }
+}
