@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -13,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
     private Hamster hamsi;
     private Button buttonPlay;
@@ -107,11 +111,42 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private SensorManager sensorManager = null;
+    private Sensor accelerometer;
+    private int x;
+    private int y;
+
+    @Override
+    public void onSensorChanged(SensorEvent sensorEvent)
+    {
+        System.out.println("Sensor changed...");
+        if (sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
+        {
+            x = (int) Math.pow(sensorEvent.values[1], 2);
+            y = (int) Math.pow(sensorEvent.values[2], 2);
+
+
+            System.out.println("Sensor triggered!");
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         System.out.println("Hallo Hamster");
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
         // startet den Background Service :3
         //startService(new Intent(getApplicationContext(),BackgroundService.class));
