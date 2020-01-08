@@ -11,6 +11,8 @@ class Hamster {
     private float alter;
     private Drawable image;
     private MainActivity mainActivity;
+    private int imageID;
+    private short hamsterID;
 
     public Hamster(String name, Geschlecht geschlecht, MainActivity mainActivity) {
         this.name = name;
@@ -65,5 +67,10 @@ class Hamster {
 
     public void setAlter(float alter) {
         this.alter = alter;
+    }
+
+    public void blink()
+    {
+
     }
 }
