@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent sensorEvent)
     {
-        //System.out.println("Sensor changed...");
+        System.out.println("Sensor changed...");
         if (sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
         {
             x = (int) Math.pow(sensorEvent.values[1], 2);
@@ -170,13 +170,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     @Override
-    protected void onDestroy() {
+    protected void onPause() {
         // Hier sollte man nochmal prüfen, ob saveHamsterData überhaupt ausgeführt wird
         SavestateHandler.saveHamsterData(hamsi, this);
-        Toast toast = Toast.makeText(this.getApplicationContext(),
+/*        Toast toast = Toast.makeText(this.getApplicationContext(),
                 hamsi.getName() + " legt sich für's erste schlafen.",
                 Toast.LENGTH_SHORT);
         toast.show();
-        super.onDestroy();
+*/        super.onPause();
     }
 }
