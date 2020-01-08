@@ -2,12 +2,14 @@ package com.example.tamagotchi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.graphics.Point;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +20,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Hamster hamsi;
     private Button buttonPlay;
     private ImageView speechBubble;
+    private ImageView imageHamster;
+
+    private Display display;
+    private int screen_width;
 
     private boolean isThereASpeechBubble;
 
@@ -115,14 +121,18 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent sensorEvent)
     {
-        System.out.println("Sensor changed...");
         if (sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
         {
-            x = (int) Math.pow(sensorEvent.values[1], 2);
-            y = (int) Math.pow(sensorEvent.values[2], 2);
+            float values[] = sensorEvent.values.clone();
+            x -= (int) values[0];
 
+            if(x < 0)
+                x = 0;
+            else if(x > screen_width-imageHamster.getWidth())
+                x = screen_width-imageHamster.getWidth();
 
-            //System.out.println("Sensor triggered!");
+            imageHamster.setX(x);
+
         }
     }
 
@@ -151,6 +161,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         buttonPat = findViewById(R.id.buttonPat);
         buttonFeed = findViewById(R.id.buttonPlay);
         speechBubble = findViewById(R.id.imageBubble);
+        imageHamster = findViewById(R.id.imageHamster);
+
+        display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        screen_width = size.x;
 
         hamsi = new Hamster("Frank", Geschlecht.MALE, this);
 
