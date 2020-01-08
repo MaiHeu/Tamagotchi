@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent sensorEvent)
     {
-        System.out.println("Sensor changed...");
+        //System.out.println("Sensor changed...");
         if (sensorEvent.sensor.getType() == Sensor.TYPE_ACCELEROMETER)
         {
             x = (int) Math.pow(sensorEvent.values[1], 2);
