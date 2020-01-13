@@ -168,6 +168,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         display.getSize(size);
         screen_width = size.x;
 
+        //TODO: Hamster erstellen
+        //hamsi = new Hamster(getIntent().getStringExtra("HamsterName"), (Geschlecht) getIntent().getStringExtra("HamsterGeschlecht"), this);
         hamsi = new Hamster("Frank", Geschlecht.MALE, this);
 
         /*

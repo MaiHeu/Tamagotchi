@@ -110,7 +110,7 @@ public class CreateActivity extends AppCompatActivity {
         System.out.println("HAMSTA");
         Intent intent = new Intent(CreateActivity.this, MainActivity.class);
         intent.putExtra("HamsterName", hamsterName.getText().toString());
-        intent.putExtra("HamsterGeschlecht", geschlecht);
+        intent.putExtra("HamsterGeschlecht", geschlecht.toString());
         intent.putExtra("HamsterId", currentHamsterPosition);
         startActivity(intent);
     }
