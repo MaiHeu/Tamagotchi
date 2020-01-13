@@ -25,32 +25,31 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Display display;
     private int screen_width;
 
+    private SensorManager sensorManager = null;
+    private Sensor accelerometer;
+    private int x;
+
     private boolean isThereASpeechBubble;
+
+    private Button buttonPat;
+    private Button buttonFeed;
+
 
     public Button getButtonPlay() {
         return buttonPlay;
     }
-
     public void setButtonPlay(Button buttonPlay) {
         this.buttonPlay = buttonPlay;
     }
-
-    private Button buttonPat;
-
     public Button getButtonPat() {
         return buttonPat;
     }
-
     public void setButtonPat(Button buttonPat) {
         this.buttonPat = buttonPat;
     }
-
-    private Button buttonFeed;
-
     public Button getButtonFeed() {
         return buttonFeed;
     }
-
     public void setButtonFeed(Button buttonFeed) {
         this.buttonFeed = buttonFeed;
     }
@@ -63,7 +62,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     hamsi.getName() + " fühlt sich genug geliebt!",
                     Toast.LENGTH_SHORT);
             toast.show();
-            showSpeechBubble(R.drawable.speechbubble_nolove, 1000);
+            //showSpeechBubble(R.drawable.speechbubble_nolove, 1000);
+            showSpeechBubble(getResources().getIdentifier("speechbubble_nolove", "drawable", getPackageName()), 1000);
         }
         else
         {
@@ -113,10 +113,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
-    private SensorManager sensorManager = null;
-    private Sensor accelerometer;
-    private int x;
-    private int y;
+
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent)
