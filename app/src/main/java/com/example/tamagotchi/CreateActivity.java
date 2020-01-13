@@ -51,15 +51,15 @@ public class CreateActivity extends AppCompatActivity {
             if(currentHamsterPosition == 0)
             {
 
-                currentHamsterPosition++;
-                hamsterdrawablename = "hamster0"+currentHamsterPosition+"_animation00_00";
+                currentHamsterPosition=maximumHamster;
+                hamsterdrawablename = "drawable\\hamster0"+currentHamsterPosition+"_animation00_00";
                 ImageView test = findViewById(R.id.imageViewHamster);
                 test.setImageResource(getStringIdentifier(this, hamsterdrawablename));
 
             }else {
 
                 currentHamsterPosition--;
-                hamsterdrawablename = "hamster0"+currentHamsterPosition+"_animation00_00";
+                hamsterdrawablename = "drawable\\hamster0"+currentHamsterPosition+"_animation00_00";
                 ImageView test = findViewById(R.id.imageViewHamster);
                 test.setImageResource(getStringIdentifier(this, hamsterdrawablename));;
             }
@@ -71,13 +71,13 @@ public class CreateActivity extends AppCompatActivity {
             {
 
                 currentHamsterPosition=0;
-                hamsterdrawablename = "hamster0"+currentHamsterPosition+"_animation00_00";
+                hamsterdrawablename = "drawable\\hamster0"+currentHamsterPosition+"_animation00_00";
                 ImageView test = findViewById(R.id.imageViewHamster);
                 test.setImageResource(getStringIdentifier(this, hamsterdrawablename));
             }else {
 
                 currentHamsterPosition++;
-                hamsterdrawablename = "hamster0"+currentHamsterPosition+"_animation00_00";
+                hamsterdrawablename = "drawable\\hamster0"+currentHamsterPosition+"_animation00_00";
                 ImageView test = findViewById(R.id.imageViewHamster);
                 test.setImageResource(getStringIdentifier(this, hamsterdrawablename.toString()));
 
