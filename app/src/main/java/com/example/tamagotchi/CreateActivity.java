@@ -3,6 +3,7 @@ package com.example.tamagotchi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -17,7 +18,7 @@ public class CreateActivity extends AppCompatActivity {
 
     RadioGroup genderSelector;
     short currentHamsterPosition = 0;
-    short maximumHamster = 3;
+    short maximumHamster = 2;
     private EditText hamsterName;
     String hamsterdrawablename;
     @Override
@@ -50,16 +51,15 @@ public class CreateActivity extends AppCompatActivity {
         if(view.getId() == R.id.imageButtonLeft){
             if(currentHamsterPosition == 0)
             {
-
                 currentHamsterPosition=maximumHamster;
-                hamsterdrawablename = "drawable\\hamster0"+currentHamsterPosition+"_animation00_00";
+                hamsterdrawablename = "hamster0"+currentHamsterPosition+"_animation00_00";
                 ImageView test = findViewById(R.id.imageViewHamster);
                 test.setImageResource(getStringIdentifier(this, hamsterdrawablename));
 
             }else {
 
                 currentHamsterPosition--;
-                hamsterdrawablename = "drawable\\hamster0"+currentHamsterPosition+"_animation00_00";
+                hamsterdrawablename = "hamster0"+currentHamsterPosition+"_animation00_00";
                 ImageView test = findViewById(R.id.imageViewHamster);
                 test.setImageResource(getStringIdentifier(this, hamsterdrawablename));;
             }
@@ -71,17 +71,15 @@ public class CreateActivity extends AppCompatActivity {
             {
 
                 currentHamsterPosition=0;
-                hamsterdrawablename = "drawable\\hamster0"+currentHamsterPosition+"_animation00_00";
+                hamsterdrawablename = "hamster0"+currentHamsterPosition+"_animation00_00";
                 ImageView test = findViewById(R.id.imageViewHamster);
                 test.setImageResource(getStringIdentifier(this, hamsterdrawablename));
             }else {
 
                 currentHamsterPosition++;
-                hamsterdrawablename = "drawable\\hamster0"+currentHamsterPosition+"_animation00_00";
+                hamsterdrawablename = "hamster0"+currentHamsterPosition+"_animation00_00";
                 ImageView test = findViewById(R.id.imageViewHamster);
                 test.setImageResource(getStringIdentifier(this, hamsterdrawablename.toString()));
-
-
             }
             System.out.println("Rechts!");
             System.out.println("CurrentHamsterPosition: "+currentHamsterPosition+" hamsterdrawablename "+hamsterdrawablename+" getStringIdentifier "+getStringIdentifier(this, hamsterdrawablename));
@@ -89,6 +87,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void onButtonCreateHamsterClick(View view){
+        Geschlecht geschlecht = null;
 
         if(hamsterName.getText().toString().isEmpty()){
             Toast.makeText(this.getApplicationContext(), "Kein Name vergeben!",
@@ -96,14 +95,27 @@ public class CreateActivity extends AppCompatActivity {
             return;
         }
 
-        if(!genderSelector.isSelected()){
+        if(genderSelector.getCheckedRadioButtonId() == -1){
             Toast.makeText(this.getApplicationContext(), "Kein Geschlecht vergeben!",
                     Toast.LENGTH_SHORT).show();
             return;
+        } else if(genderSelector.getCheckedRadioButtonId() == 0)
+        {
+            geschlecht = geschlecht.MALE;
         }
+        else{
+            geschlecht = geschlecht.FEMALE;
+        }
+        //Finally we create a hamster
+        System.out.println("HAMSTA");
+        Intent intent = new Intent(CreateActivity.this, MainActivity.class);
+        intent.putExtra("HamsterName", hamsterName.getText().toString());
+        intent.putExtra("HamsterGeschlecht", geschlecht);
+        intent.putExtra("HamsterId", currentHamsterPosition);
+        startActivity(intent);
     }
 
     public static int getStringIdentifier(Context context, String name) {
-        return context.getResources().getIdentifier(name, "string", context.getPackageName());
+        return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
     }
 }

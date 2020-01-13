@@ -1,7 +1,7 @@
 package com.example.tamagotchi;
 
 public enum Geschlecht {
-    MALE, FEMALE;
+    MALE, FEMALE, DIVERSE;
 
     public String getGeschlecht()
     {
