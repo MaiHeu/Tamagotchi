@@ -13,6 +13,7 @@ class Hamster {
     private MainActivity mainActivity;
     private int imageID;
     private short hamsterID;
+    private long lastSeenDatesec;
 
     public Hamster(String name, Geschlecht geschlecht, MainActivity mainActivity) {
         this.name = name;
@@ -41,6 +42,14 @@ class Hamster {
     public void setStatLove(float statLove) {
         this.statLove = statLove;
         mainActivity.getButtonPat().setText( String.valueOf(statLove) );
+    }
+
+    public long getLastSeenDatesec() {
+        return lastSeenDatesec;
+    }
+
+    public void setLastSeenDatesec(long lastSeenDatesec) {
+        this.lastSeenDatesec = lastSeenDatesec;
     }
 
     public float getStatPlay() {
@@ -73,4 +82,6 @@ class Hamster {
     {
 
     }
+
+
 }

@@ -23,6 +23,7 @@ public class SavestateHandler {
         mEditor.putFloat("food", hamster.getStatFood()).commit();
         mEditor.putFloat("play", hamster.getStatPlay()).commit();
         mEditor.putFloat("alter", hamster.getAlter()).commit();
+        mEditor.putLong("lastSeen", hamster.getLastSeenDatesec()).commit();
 
         Toast toast = Toast.makeText(mainActivity.getApplicationContext(),
                 "Hamster gespeichert",
@@ -41,6 +42,7 @@ public class SavestateHandler {
         hamster.setStatFood(prefis.getFloat("food", hamster.getStatFood()));
         hamster.setStatPlay(prefis.getFloat("play", hamster.getStatPlay()));
         hamster.setAlter(prefis.getFloat("alter", hamster.getAlter()));
+        hamster.setLastSeenDatesec(prefis.getLong("lastSeen", hamster.getLastSeenDatesec()));
         if(prefis.getString("geschlecht", "FEMALE") == "MALE")
             hamster.setGeschlecht(Geschlecht.MALE);
         else
