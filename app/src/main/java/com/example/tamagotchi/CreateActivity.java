@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -52,37 +50,21 @@ public class CreateActivity extends AppCompatActivity {
             if(currentHamsterPosition == 0)
             {
                 currentHamsterPosition=maximumHamster;
-                hamsterdrawablename = "hamster0"+currentHamsterPosition+"_animation00_00";
-                ImageView test = findViewById(R.id.imageViewHamster);
-                test.setImageResource(getStringIdentifier(this, hamsterdrawablename));
+                switchHamster(currentHamsterPosition);
 
             }else {
-
                 currentHamsterPosition--;
-                hamsterdrawablename = "hamster0"+currentHamsterPosition+"_animation00_00";
-                ImageView test = findViewById(R.id.imageViewHamster);
-                test.setImageResource(getStringIdentifier(this, hamsterdrawablename));;
+                switchHamster(currentHamsterPosition);
             }
-       System.out.println("Links!");
-            System.out.println("CurrentHamsterPosition: "+currentHamsterPosition+" hamsterdrawablename "+hamsterdrawablename+" getStringIdentifier "+getStringIdentifier(this, hamsterdrawablename));
        }else{
-
             if(currentHamsterPosition == maximumHamster)
             {
-
                 currentHamsterPosition=0;
-                hamsterdrawablename = "hamster0"+currentHamsterPosition+"_animation00_00";
-                ImageView test = findViewById(R.id.imageViewHamster);
-                test.setImageResource(getStringIdentifier(this, hamsterdrawablename));
+                switchHamster(currentHamsterPosition);
             }else {
-
                 currentHamsterPosition++;
-                hamsterdrawablename = "hamster0"+currentHamsterPosition+"_animation00_00";
-                ImageView test = findViewById(R.id.imageViewHamster);
-                test.setImageResource(getStringIdentifier(this, hamsterdrawablename.toString()));
+                switchHamster(currentHamsterPosition);
             }
-            System.out.println("Rechts!");
-            System.out.println("CurrentHamsterPosition: "+currentHamsterPosition+" hamsterdrawablename "+hamsterdrawablename+" getStringIdentifier "+getStringIdentifier(this, hamsterdrawablename));
         }
     }
 
@@ -101,10 +83,10 @@ public class CreateActivity extends AppCompatActivity {
             return;
         } else if(genderSelector.getCheckedRadioButtonId() == 0)
         {
-            geschlecht = geschlecht.MALE;
+            geschlecht.setGeschlecht("MALE");
         }
         else{
-            geschlecht = geschlecht.FEMALE;
+            geschlecht.setGeschlecht("FEMALE");
         }
         //Finally we create a hamster
         System.out.println("HAMSTA");
@@ -112,11 +94,16 @@ public class CreateActivity extends AppCompatActivity {
         intent.putExtra("HamsterName", hamsterName.getText().toString());
         intent.putExtra("HamsterGeschlecht", geschlecht.toString());
         intent.putExtra("HamsterId", currentHamsterPosition);
-        intent.putExtra("Aufgerufen", true);
         startActivity(intent);
     }
 
     public static int getStringIdentifier(Context context, String name) {
         return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
+    }
+
+    public void switchHamster(int id){
+        hamsterdrawablename = "hamster0"+id+"_animation00_00";
+        ImageView test = findViewById(R.id.imageViewHamster);
+        test.setImageResource(getStringIdentifier(this, hamsterdrawablename.toString()));
     }
 }

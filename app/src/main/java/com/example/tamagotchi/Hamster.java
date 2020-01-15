@@ -78,10 +78,4 @@ class Hamster {
         this.alter = alter;
     }
 
-    public void blink()
-    {
-
-    }
-
-
 }
