@@ -1,8 +1,11 @@
 package com.example.tamagotchi;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
+import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private Button buttonPat;
     private Button buttonFeed;
+    public static int foo = 0;
 
     public Button getButtonPlay() {
         return buttonPlay;
@@ -156,12 +160,18 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         System.out.println("Hallo Hamster");
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        Intent intent = new Intent(MainActivity.this, CreateActivity.class);
+            if(foo == 0) {
+                foo++;
+            startActivity(intent);
 
+        }
         // startet den Background Service :3
         //startService(new Intent(getApplicationContext(),BackgroundService.class));
 
@@ -171,17 +181,26 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         speechBubble = findViewById(R.id.imageBubble);
         imageHamster = findViewById(R.id.imageHamster);
 
+
+
         display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         screen_width = size.x;
 
         //TODO: Hamster erstellen
+
+        System.out.println(getIntent().getStringExtra("HamsterName"));
         //Geschlecht test = null;
         //test.setGeschlecht(getIntent().getStringExtra("HamsterGeschlecht"));
-        //hamsi = new Hamster(getIntent().getStringExtra("HamsterName"), test, this);
-        System.out.println("Hamster Geschlecht:" + getIntent().getStringExtra("HamsterGeschlecht"));
-        hamsi = new Hamster("Frank", 1, this);
+        hamsi = new Hamster(getIntent().getStringExtra("HamsterName"), getIntent().getIntExtra("HamsterId", 1), this);
+        String hamsterdrawablename = "hamster0"+getIntent().getIntExtra("HamsterId", 2)+"_animation00_00";
+        //int t = getIntent().getExtras().getInt("HamsterId");
+        //System.out.println(t);
+
+        imageHamster.setImageResource(CreateActivity.getStringIdentifier(this, hamsterdrawablename.toString()));
+        //System.out.println("Hamster Geschlecht:" + getIntent().getStringExtra("HamsterGeschlecht"));
+        //hamsi = new Hamster("Frank", 1, this);
 
         /*
         hamsi.setStatFood(55);
@@ -203,4 +222,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         super.onPause();
     }
+
+ /*   protected void blink(int imageID) {
+        AnimationDrawable animation = new AnimationDrawable();
+        String hamsterdrawablename[] = {"hamster0"+imageID+"_animation00_00","hamster0"+imageID+"_animation00_01","hamster0"+imageID+"_animation00_00"};
+
+        animation.addFrame(getResources().getDrawable(R.id.);
+    }*/
 }

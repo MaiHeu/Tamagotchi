@@ -77,7 +77,7 @@ public class CreateActivity extends AppCompatActivity {
             return;
         }
 
-        if(genderSelector.getCheckedRadioButtonId() == -1){
+/*        if(genderSelector.getCheckedRadioButtonId() == -1){
             Toast.makeText(this.getApplicationContext(), "Kein Geschlecht vergeben!",
                     Toast.LENGTH_SHORT).show();
             return;
@@ -87,12 +87,12 @@ public class CreateActivity extends AppCompatActivity {
         }
         else{
             geschlecht.setGeschlecht("FEMALE");
-        }
+        }*/
         //Finally we create a hamster
         System.out.println("HAMSTA");
         Intent intent = new Intent(CreateActivity.this, MainActivity.class);
         intent.putExtra("HamsterName", hamsterName.getText().toString());
-        intent.putExtra("HamsterGeschlecht", geschlecht.toString());
+        //intent.putExtra("HamsterGeschlecht", geschlecht.toString());
         intent.putExtra("HamsterId", currentHamsterPosition);
         startActivity(intent);
     }
