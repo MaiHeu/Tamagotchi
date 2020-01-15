@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         //test.setGeschlecht(getIntent().getStringExtra("HamsterGeschlecht"));
         //hamsi = new Hamster(getIntent().getStringExtra("HamsterName"), test, this);
         System.out.println("Hamster Geschlecht:" + getIntent().getStringExtra("HamsterGeschlecht"));
-        hamsi = new Hamster("Frank", Geschlecht.MALE, this);
+        hamsi = new Hamster("Frank", 1, this);
 
         /*
         hamsi.setStatFood(55);

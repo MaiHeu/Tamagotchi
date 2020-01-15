@@ -12,12 +12,12 @@ class Hamster {
     private Drawable image;
     private MainActivity mainActivity;
     private int imageID;
-    private short hamsterID;
+    private int hamsterID;
     private long lastSeenDatesec;
 
-    public Hamster(String name, Geschlecht geschlecht, MainActivity mainActivity) {
+    public Hamster(String name, int imageID, MainActivity mainActivity) {
         this.name = name;
-        this.geschlecht = geschlecht;
+        this.imageID = imageID;
         this.mainActivity = mainActivity;
     }
 
