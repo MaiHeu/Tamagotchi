@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Button buttonPat;
     private Button buttonFeed;
 
-
     public Button getButtonPlay() {
         return buttonPlay;
     }
@@ -138,9 +137,21 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
+    public void calculateHamsterStats()
+    {
+        // ZEIT SEIT LETZTEM LOGIN MESSEN
+        long curTime = System.currentTimeMillis();
+        long curTimesec = curTime / 1000;  // curTimesec in seconds
+        long diff = 0;
+        if(hamsi.getLastSeenDatesec() > 10) diff = curTimesec - hamsi.getLastSeenDatesec();
+
+        hamsi.setStatLove(hamsi.getStatLove() - diff / 10);
+    }
+
     protected void onResume() {
         super.onResume();
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        calculateHamsterStats();
     }
 
     @Override
@@ -178,16 +189,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         SavestateHandler.loadHamsterData(hamsi, this);
 
+        calculateHamsterStats();
     }
 
     @Override
     protected void onPause() {
         // Hier sollte man nochmal prüfen, ob saveHamsterData überhaupt ausgeführt wird
+        hamsi.setLastSeenDatesec(System.currentTimeMillis() / 1000);
         SavestateHandler.saveHamsterData(hamsi, this);
-/*        Toast toast = Toast.makeText(this.getApplicationContext(),
-                hamsi.getName() + " legt sich für's erste schlafen.",
-                Toast.LENGTH_SHORT);
-        toast.show();
-*/        super.onPause();
+
+        super.onPause();
     }
 }
