@@ -177,11 +177,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         screen_width = size.x;
 
         //TODO: Hamster erstellen
-        Geschlecht test = null;
-        test.setGeschlecht(getIntent().getStringExtra("HamsterGeschlecht"));
-        hamsi = new Hamster(getIntent().getStringExtra("HamsterName"), test, this);
+        //Geschlecht test = null;
+        //test.setGeschlecht(getIntent().getStringExtra("HamsterGeschlecht"));
+        //hamsi = new Hamster(getIntent().getStringExtra("HamsterName"), test, this);
         System.out.println("Hamster Geschlecht:" + getIntent().getStringExtra("HamsterGeschlecht"));
-        //hamsi = new Hamster("Frank", Geschlecht.MALE, this);
+        hamsi = new Hamster("Frank", Geschlecht.MALE, this);
 
         /*
         hamsi.setStatFood(55);

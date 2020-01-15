@@ -112,6 +112,7 @@ public class CreateActivity extends AppCompatActivity {
         intent.putExtra("HamsterName", hamsterName.getText().toString());
         intent.putExtra("HamsterGeschlecht", geschlecht.toString());
         intent.putExtra("HamsterId", currentHamsterPosition);
+        intent.putExtra("Aufgerufen", true);
         startActivity(intent);
     }
 
