@@ -2,8 +2,7 @@
 1. Java Projekt FI2018-1
 
 Gruppe Maik + Maxi M&M Productions
-Eltern aufgepasst! Das Kind quengelt ständig, es möchte ein Haustier haben? Wir haben die Lösung!
-Unser Programm löst Ihre Probleme. Aus dem Hause der M&M Productions stellen wir vor:
+Eltern aufgepasst! Das Kind quengelt ständig, es möchte ein Haustier haben? Wir haben die Lösung! Aus dem Hause der M&M Productions stellen wir vor:
 
 Das Hamster Tamagotchi™!
 Wählen Sie aus 3 unterschiedlichen Hamstern, geben Sie ihm einen Namen, dann füttern und streicheln Sie ihn. Halten Sie in glücklich, ansonsten stirbt er.
